@@ -1,11 +1,18 @@
-import { useMoralis } from "react-moralis";
+import { useMoralis } from "react-moralis"
 
-export const AuthBtn = () => {
-	const { authenticate, isAuthenticated, user } = useMoralis()
+export const AuthBtn = ( ) => {
+	const { authenticate, isAuthenticated, isAuthenticating, user } = useMoralis()
+
 	return (
 		<div>
 			{  isAuthenticated && <h1>Welcome {user.get("username")}</h1> }
-			{ !isAuthenticated && <button onClick = { () => authenticate() }>Login</button> }
+			{ !isAuthenticated && 
+			<button 
+				onClick = { () => authenticate() }
+				disabled = { isAuthenticating }
+			>
+				Login
+			</button> }
 		</div>
 	)
 }

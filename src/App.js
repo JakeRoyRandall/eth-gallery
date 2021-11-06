@@ -11,7 +11,7 @@ const App = () => {
 
 	useEffect(() => {
 		const nftCount = async () => { 
-			let nfts = await (await account.getNFTs({ chain: "rinkeby", address: user.attributes.ethAddress })).result
+			let nfts = await (await account.getNFTs({ chain: "eth", address: user.attributes.ethAddress })).result
 			console.log(nfts)
 			setNftList(nfts)
 		}

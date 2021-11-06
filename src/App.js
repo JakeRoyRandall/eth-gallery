@@ -29,6 +29,8 @@ const App = () => {
 
 const readMetadata = ( nft ) => { return JSON.parse(nft.metadata) }
 
+const formatIPFS = ( img ) => { return img.replace("ipfs://", "https://gateway.ipfs.io/ipfs/")}
+
 const Gallery = ({ nftList }) => {
 
 	return (
@@ -40,7 +42,7 @@ const Gallery = ({ nftList }) => {
 				return (
 					<div key={ i }>
 						name: { nft.name }
-						<img style = {{ maxWidth:"100px", maxHeight:"100px" }} src = { image } alt = { nft.name } />
+						<img style = {{ maxWidth:"100px", maxHeight:"100px" }} src = { formatIPFS(image) } alt = { nft.name } />
 					</div>
 				)
 			})}
